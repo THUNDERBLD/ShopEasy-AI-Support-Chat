@@ -12,6 +12,10 @@ export const OPENAI_API_KEY = process.env.OPENAI_API_KEY ?? '';
 export const ANTHROPIC_API_KEY = process.env.ANTHROPIC_API_KEY ?? '';
 export const COHERE_API_KEY = process.env.COHERE_API_KEY ?? '';
 export const COHERE_MODEL = process.env.COHERE_MODEL ?? 'command-a-03-2025';
+export const CLIENT_ORIGINS = (process.env.CLIENT_ORIGINS ?? 'http://localhost:5173')
+  .split(',')
+  .map((origin) => origin.trim())
+  .filter(Boolean);
 
 export const MAX_MESSAGE_LENGTH = process.env.MAX_MESSAGE_LENGTH
   ? parseInt(process.env.MAX_MESSAGE_LENGTH)

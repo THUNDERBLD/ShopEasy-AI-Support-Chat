@@ -3,7 +3,7 @@
 import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
-import { validateEnv, PORT } from './config/constants.js';
+import { validateEnv, PORT, CLIENT_ORIGINS } from './config/constants.js';
 import { runMigrations } from './db/migrations.js';
 import chatRouter from './routes/chat.js';
 import { errorHandler } from './middleware/errorHandler.js';
@@ -20,7 +20,7 @@ const app = express();
 
 // Middleware
 app.use(cors({
-  origin: 'http://localhost:5173',
+  origin: CLIENT_ORIGINS,
   methods: ['GET', 'POST'],
   allowedHeaders: ['Content-Type'],
 }));
